@@ -33,26 +33,6 @@ void loop() {
   if ((ry >= -2) && (ry <= 2)) ry = 0;
   if ((rx >= -2) && (rx <= 2)) rx = 0;
 
-//  Serial.print((int)buffer[3]);
-//  Serial.print("\t");
-//  Serial.print((int)buffer[2]);
-//  Serial.print("\t");
-//  Serial.print("\t");
-//  Serial.print(ry);
-//  
-//  Serial.print("\t");
-//  Serial.print(rx);
-//  Serial.print("\t");
-//  Serial.print("\t");
-//  
-//  Serial.print(ry-rx);
-//  Serial.print("\t");
-//  Serial.print(ry+rx);
-
- // Serial.println();
-
-
-
   analogWrite(left_motor_speed, constrain(abs(ry-rx),0,254));
   analogWrite(right_motor_speed,constrain(abs(ry+rx),0,254));
   digitalWrite(left_dir, constrain((ry-rx),0,1));
@@ -60,62 +40,3 @@ void loop() {
 
 }
 
-/*
-
-
-
-if ((ry == 0) && (rx == 0)) //стоим на месте
-{
-  analogWrite(left_motor_speed, 0);
-  analogWrite(right_motor_speed, 0);
-}
-else if ( (ry > 0) && (rx == 0)) //движение вперед
-{
-  analogWrite(left_motor_speed, ry);
-  analogWrite(right_motor_speed, ry);
-  digitalWrite(left_dir, HIGH);
-  digitalWrite(right_dir, HIGH);
-}
-else if ( (ry < 0) && (rx == 0)) //движение назад
-{
-  analogWrite(left_motor_speed, abs(ry));
-  analogWrite(right_motor_speed, abs(ry));
-  digitalWrite(left_dir, LOW);
-  digitalWrite(right_dir, LOW);
-}
-
-if ((rx < 0) && (ry > 0)) //поворот налево
-{ analogWrite(right_motor_speed, constrain((ry + rx), 0, 255));
-  analogWrite(left_motor_speed, abs(rx));
-  digitalWrite(left_dir, HIGH);
-  digitalWrite(right_dir, HIGH);
-}
-
-
-if ((rx > 0) && (ry > 0)) //поворот  направо
-{ analogWrite(right_motor_speed, abs(rx));
-  analogWrite(left_motor_speed, constrain((ry - rx), 0, 255));
-  digitalWrite(left_dir, HIGH);
-  digitalWrite(right_dir, HIGH);
-}
-
-if ((ry == 0) && (rx < 0)) //поворот на месте левым колесом
-{
-  analogWrite(left_motor_speed, abs(rx));
-  analogWrite(right_motor_speed, abs(rx));
-  digitalWrite(left_dir, LOW);
-  digitalWrite(right_dir, HIGH);
-}
-if ((ry == 0) && (rx > 0)) //поворот на месте правым колесом
-{
-  analogWrite(left_motor_speed, abs(rx));
-  analogWrite(right_motor_speed, abs(rx));
-  digitalWrite(left_dir, HIGH);
-  digitalWrite(right_dir, LOW);
-}
-
-//Serial.println(rx);
-////Serial.println(ry);
-
-}
-*/
